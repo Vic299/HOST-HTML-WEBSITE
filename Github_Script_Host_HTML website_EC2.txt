@@ -1,0 +1,11 @@
+#!/bin/bash
+sudo su
+yum update -y
+yum install -y httpd
+cd /var/www/html
+wget https://github.com/Vic299/HOST-HTML-WEBSITE/archive/refs/heads/main.zip
+unzip main.zip
+cp -r HOST-HTML-WEBSITE-main/* /var/www/html
+rm -rf HOST-HTML-WEBSITE-main mole.zip
+systemctl enable httpd
+systemctl start httpd
